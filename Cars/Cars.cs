@@ -8,12 +8,43 @@ namespace MyLibrary
 {
     public class Cars
     {
-        private string _marka,  
+        private string Marka, Model, Owner;
+        private int YearsOfOut, YearsOfSTO;
 
-        public Cars() { }
-        public void print()
+        public Cars() 
         {
             
         }
+
+        public void TechInspection()
+        {
+            
+        }
+
+        public void IssueAFine()
+        {
+
+        }
+
+        public void Sell()
+        {
+
+        }
+
+        public void GiveData()
+        {
+
+        }
+
+        public void GivefioOwner()
+        {
+
+        }
+
+        public void ToPayFine()
+        {
+
+        }
+
     }
 }
