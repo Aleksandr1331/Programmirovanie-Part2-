@@ -1,75 +1,56 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Runtime.Remoting.Messaging;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace MyLibrary
 {
     public class Car
     {
-        readonly string Marka, Model, Name, LastName, SecondName, OutTextBox;
-        readonly int YearsOfOut, YearsOfSTO;
-        readonly List<int> Fines = new List<int>();
-        readonly bool HasSecondName;
+        readonly string marka, model;
+        readonly int yearsOfOut;
+        private int yearsOfTO;
+        private string owner, outTextBox;
+        readonly List<int> fines = new List<int>();
 
-        public Car(string a, string b, string c, string d, string e, string f)
+        public Car(string marka, string model, int yearsOfOut, int yearsOfTO, string owner)
         {
-            Marka = a; Model = b; Name = e; LastName = f;
-            YearsOfOut = int.Parse(c); YearsOfSTO = int.Parse(d);
-            OutTextBox = a + " " + YearsOfOut + " (" + f + " " + char.ToUpper(e[0]) + "." + ".)";
-            HasSecondName = true;
+            this.marka = marka; this.model = model; this.owner = owner;
+            this.yearsOfOut = yearsOfOut; this.yearsOfTO = yearsOfTO;
+            outTextBox = marka + " " + yearsOfOut + " (" + owner + ")";
         }
 
-        public Car(string a, string b, string c, string d, string e, string f, string g) 
+        public int YearsofOut
         {
-            Marka = a; Model = b; Name = e; LastName = f; SecondName = g;
-            YearsOfOut = int.Parse(c); YearsOfSTO = int.Parse(d);
-            OutTextBox = a + " " + YearsOfOut + " (" + f + " " + char.ToUpper(e[0]) + "." + char.ToUpper(g[0]) + ".)";
-            HasSecondName = false;
-        }
-        
-        public string GetOutTextBox()
-        {
-            return OutTextBox;
+            get { return yearsOfOut; }
         }
 
-        public List<int> GetFines()
+        public string Owner
         {
-            return Fines;
+            set { owner = value; SetOutTextBox(); }
         }
 
-        public void SetFines(int a)
+        public string OutTextBox
         {
-            Fines.Add(a);
+            get { return outTextBox; }
         }
 
-        public void TechInspection()
+        public List<int> Fines
         {
-            
+            get { return fines; }
         }
 
-        public void IssueAFine()
+        public int YearOfTO
         {
-
+            set { yearsOfTO = value; SetOutTextBox(); }
+            get { return yearsOfTO; }
         }
 
-        public void Sell()
+        public string[] Data
         {
-
+            get { return new string[5] { marka, model, owner, yearsOfOut.ToString(), yearsOfTO.ToString() }; }
         }
 
-        public string[] GetData()
+        private void SetOutTextBox()
         {
-            return new string[5] { Marka, Model, Name + " " + LastName + " " + SecondName, YearsOfOut.ToString(), YearsOfSTO.ToString() };
+            outTextBox = marka + " " + yearsOfOut + " (" + owner + ")";
         }
-
-        public void PayFine()
-        {
-
-        }
-
     }
 }

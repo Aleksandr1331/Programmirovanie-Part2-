@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Laborotornay1
+namespace Lab1
 {
     internal static class Program
     {
@@ -16,7 +16,9 @@ namespace Laborotornay1
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form());
+
+
+            Application.Run(new Form1());
         }
     }
 }
